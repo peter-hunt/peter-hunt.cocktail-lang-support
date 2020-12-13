@@ -1,0 +1,130 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Cocktail",
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#functions"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#operators"
+    },
+    {
+      "include": "#storage"
+    },
+    {
+      "include": "#support"
+    },
+    {
+      "include": "#values"
+    }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.cocktail",
+          "match": "#.*"
+        },
+        {
+          "name": "comment.block.cocktail",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+    "functions": {
+      "name": "meta.function-param.cocktail",
+      "begin": "\\bfunc\\s+[A-Za-z_]\\w*\\s*\\(",
+      "end": "\\)",
+      "patterns": [
+        {
+          "include": "#operators"
+        },
+        {
+          "include": "#values"
+        },
+        {
+          "name": "variable.parameter",
+          "match": "\\b[A-Za-z_]\\w*\\b"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.cocktail",
+          "match": "\\b(break|continue|elif|else|if|while)\\b"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.other.cocktail",
+          "match": "\\b(not)\\b"
+        },
+        {
+          "name": "keyword.operator.cocktail",
+          "match": "(\\+|\\-|\\*{1,2}|/{1,2}|%|<{1,2}|>{1,2}|&|\\^|\\||={1,2}|~)=?"
+        }
+      ]
+    },
+    "storage": {
+      "patterns": [
+        {
+          "name": "storage.type.cocktail",
+          "match": "\\b(func)\\b"
+        }
+      ]
+    },
+    "support": {
+      "patterns": [
+        {
+          "name": "support.function.cocktail",
+          "match": "\\b(print|repr)\\b"
+        }
+      ]
+    },
+    "values": {
+      "patterns": [
+        {
+          "name": "constant.language.cocktail",
+          "match": "\\b(true|false|none)\\b"
+        },
+        {
+          "name": "constant.numeric.cocktail",
+          "match": "\\d+(\\.(\\d+)?)?([Ee][+\\-]?\\d+)?|(\\d+)?\\.\\d+([Ee][+\\-]?\\d+)?"
+        },
+        {
+          "name": "string.quoted.double.cocktail",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.cocktail",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single.cocktail",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "name": "constant.character.escape.cocktail",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "scopeName": "source.cocktail"
+}

@@ -1,0 +1,34 @@
+{
+  "name": "cocktail-programming-language",
+  "displayName": "Cocktail Programming Language",
+  "description": "Speedy and Beautifullly coding",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.52.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "cocktail",
+        "aliases": [
+          "Cocktail",
+          "cocktail"
+        ],
+        "extensions": [
+          ".cocktail"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "cocktail",
+        "scopeName": "source.cocktail",
+        "path": "./syntaxes/.cocktail.tmLanguage.json"
+      }
+    ]
+  }
+}
