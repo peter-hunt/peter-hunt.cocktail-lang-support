@@ -31,7 +31,7 @@ This extension contributes the following settings:
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+Strings with line-breaks are highlighted, which shouldn't.
 
 ## Release Notes
 ### 0.1.0

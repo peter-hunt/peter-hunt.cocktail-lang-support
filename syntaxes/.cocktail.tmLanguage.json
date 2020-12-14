@@ -87,7 +87,7 @@
       "patterns": [
         {
           "name": "support.function.cocktail",
-          "match": "\\b(print|repr)\\b"
+          "match": "\\b(print|repr|Boolean|Number|String)\\b"
         }
       ]
     },
