@@ -28,8 +28,9 @@
     "comments": {
       "patterns": [
         {
-          "name": "comment.line.cocktail",
-          "match": "#.*"
+          "name": "comment.line.number-sign.cocktail",
+          "begin": "#",
+          "end": "\n"
         },
         {
           "name": "comment.block.cocktail",
@@ -87,7 +88,7 @@
       "patterns": [
         {
           "name": "support.function.cocktail",
-          "match": "\\b(print|repr|Boolean|Number|String)\\b"
+          "match": "\\b(exit|print|quit|repr|Boolean|List|Number|String|Tuple)\\b"
         }
       ]
     },

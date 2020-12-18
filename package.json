@@ -1,7 +1,7 @@
 {
   "name": "cocktail-programming-language",
   "displayName": "Cocktail Programming Language",
-  "description": "Speedy and Beautifullly coding",
+  "description": "Speedy and Beautiful coding",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.52.0"
