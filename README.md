@@ -36,7 +36,7 @@ Strings with line-breaks are highlighted, which shouldn't.
 ## Release Notes
 ### 0.1.0
 
-Te rstelease of Cocktail Lang Support
+The release of Cocktail Lang Support
 
 ## License
 [MIT](LICENSE.txt)

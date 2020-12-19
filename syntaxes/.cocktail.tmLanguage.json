@@ -68,7 +68,7 @@
       "patterns": [
         {
           "name": "keyword.other.cocktail",
-          "match": "\\b(not)\\b"
+          "match": "\\b(in|not)\\b"
         },
         {
           "name": "keyword.operator.cocktail",

@@ -21,7 +21,7 @@
 
 ## Add more language features
 
-* To add features such as intellisense, hovers and validators check out the VS Code extenders documentation at https://code.visualstudio.com/docs
+* To add features such as intelli-sense, hovers and validators check out the VS Code extenders documentation at https://code.visualstudio.com/docs
 
 ## Install your extension
 
