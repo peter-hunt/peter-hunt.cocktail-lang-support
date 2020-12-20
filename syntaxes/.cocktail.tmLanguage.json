@@ -60,7 +60,7 @@
       "patterns": [
         {
           "name": "keyword.control.cocktail",
-          "match": "\\b(break|continue|elif|else|if|while)\\b"
+          "match": "\\b(break|continue|elif|else|for|if|while)\\b"
         }
       ]
     },
@@ -72,7 +72,7 @@
         },
         {
           "name": "keyword.operator.cocktail",
-          "match": "(\\+|\\-|\\*{1,2}|/{1,2}|%|<{1,2}|>{1,2}|&|\\^|\\||={1,2}|~)=?"
+          "match": "(\\+|\\-|\\*{1,2}|/{1,2}|%|<{1,2}|>{1,2}|&|\\^|\\||={1,2}|~)=?|[\\+\\-]{2}"
         }
       ]
     },
@@ -114,8 +114,34 @@
           ]
         },
         {
+          "name": "string.regexp.double.cocktail",
+          "begin": "[Rr]\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.cocktail",
+              "match": "\\\\."
+            },
+            {
+              "name": "support.constant",
+              "match": "(\\[BDSWbdsw]|[\\^$])"
+            }
+          ]
+        },
+        {
           "name": "string.quoted.single.cocktail",
           "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "name": "constant.character.escape.cocktail",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "string.regexp.single.cocktail",
+          "begin": "[Rr]'",
           "end": "'",
           "patterns": [
             {
