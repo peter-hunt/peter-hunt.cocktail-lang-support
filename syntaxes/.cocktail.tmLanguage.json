@@ -60,7 +60,7 @@
       "patterns": [
         {
           "name": "keyword.control.cocktail",
-          "match": "\\b(break|continue|elif|else|for|if|while)\\b"
+          "match": "\\b(break|continue|elif|else|for|if|of|while)\\b"
         }
       ]
     },
