@@ -133,8 +133,7 @@
             },
             {
               "name": "constant.character-range.cocktail",
-              "begin": "\\[",
-              "end": "\\]",
+              "match": "\\[.+\\]",
               "patterns": [
                 {
                   "name": "constant.character.escape.cocktail",
