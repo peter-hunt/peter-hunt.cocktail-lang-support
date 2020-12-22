@@ -88,7 +88,7 @@
       "patterns": [
         {
           "name": "support.function.cocktail",
-          "match": "\\b(exit|input|print|quit|repr|Boolean|List|Number|String|Tuple)\\b"
+          "match": "\\b(exit|input|match|print|quit|repr|Boolean|List|Number|String|Tuple)\\b"
         }
       ]
     },
@@ -116,15 +116,31 @@
         {
           "name": "string.regexp.double.cocktail",
           "begin": "[Rr]\"",
+          "beginCaptures": {
+            "1": {
+              "name": "keyword.other.prefix.cocktail"
+            }
+          },
           "end": "\"",
           "patterns": [
             {
-              "name": "constant.character.escape.cocktail",
-              "match": "\\\\."
+              "name": "support.constant.cocktail",
+              "match": "\\\\[BDSWbdsw]"
             },
             {
-              "name": "support.constant",
-              "match": "(\\[BDSWbdsw]|[\\^$])"
+              "name": "constant.character.escape.cocktail",
+              "match": "\\\\[^BDSWbdsw\n]"
+            },
+            {
+              "name": "constant.character-range.cocktail",
+              "begin": "\\[",
+              "end": "\\]",
+              "patterns": [
+                {
+                  "name": "constant.character.escape.cocktail",
+                  "match": "\\\\."
+                }
+              ]
             }
           ]
         },
