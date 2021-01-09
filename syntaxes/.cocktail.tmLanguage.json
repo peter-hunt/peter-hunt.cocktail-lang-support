@@ -6,9 +6,6 @@
       "include": "#comments"
     },
     {
-      "include": "#functions"
-    },
-    {
       "include": "#keywords"
     },
     {
@@ -22,6 +19,9 @@
     },
     {
       "include": "#values"
+    },
+    {
+      "include": "#functions"
     }
   ],
   "repository": {
@@ -36,23 +36,6 @@
           "name": "comment.block.cocktail",
           "begin": "/\\*",
           "end": "\\*/"
-        }
-      ]
-    },
-    "functions": {
-      "name": "meta.function-param.cocktail",
-      "begin": "\\bfunc\\s+[A-Za-z_]\\w*\\s*\\(",
-      "end": "\\)",
-      "patterns": [
-        {
-          "include": "#operators"
-        },
-        {
-          "include": "#values"
-        },
-        {
-          "name": "variable.parameter",
-          "match": "\\b[A-Za-z_]\\w*\\b"
         }
       ]
     },
@@ -79,7 +62,7 @@
     "storage": {
       "patterns": [
         {
-          "name": "storage.type.cocktail",
+          "name": "storage.type.function.cocktail",
           "match": "\\b(func)\\b"
         }
       ]
@@ -88,7 +71,7 @@
       "patterns": [
         {
           "name": "support.function.cocktail",
-          "match": "\\b(exit|input|match|print|quit|repr|Boolean|List|Number|String|Tuple)\\b"
+          "match": "\\b(exit|input|length|match|print|quit|repr|Boolean|List|Number|String|Tuple)\\b"
         }
       ]
     },
@@ -104,8 +87,7 @@
         },
         {
           "name": "string.quoted.double.cocktail",
-          "begin": "\"",
-          "end": "\"",
+          "match": "\".*\"",
           "patterns": [
             {
               "name": "constant.character.escape.cocktail",
@@ -115,13 +97,12 @@
         },
         {
           "name": "string.regexp.double.cocktail",
-          "begin": "[Rr]\"",
-          "beginCaptures": {
+          "match": "([Rr])\".*\"",
+          "captures": {
             "1": {
               "name": "keyword.other.prefix.cocktail"
             }
           },
-          "end": "\"",
           "patterns": [
             {
               "name": "support.constant.cocktail",
@@ -145,8 +126,7 @@
         },
         {
           "name": "string.quoted.single.cocktail",
-          "begin": "'",
-          "end": "'",
+          "match": "'.*'",
           "patterns": [
             {
               "name": "constant.character.escape.cocktail",
@@ -156,12 +136,112 @@
         },
         {
           "name": "string.regexp.single.cocktail",
-          "begin": "[Rr]'",
-          "end": "'",
+          "match": "([Rr])'.*'",
+          "captures": {
+            "1": {
+              "name": "keyword.other.prefix.cocktail"
+            }
+          },
           "patterns": [
             {
+              "name": "support.constant.cocktail",
+              "match": "\\\\[BDSWbdsw]"
+            },
+            {
               "name": "constant.character.escape.cocktail",
-              "match": "\\\\."
+              "match": "\\\\[^BDSWbdsw]"
+            },
+            {
+              "name": "constant.character-range.cocktail",
+              "match": "\\[.+\\]",
+              "patterns": [
+                {
+                  "name": "constant.character.escape.cocktail",
+                  "match": "\\\\."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "functions": {
+      "patterns": [
+        {
+          "name": "meta.call.cocktail",
+          "begin": "^\\s*([A-Za-z_]\\w*)\\s*\\(",
+          "beginCaptures": {
+            "1": {
+              "name": "entity.name.function.cocktail"
+            }
+          },
+          "end": "\\)",
+          "patterns": [
+            {
+              "include": "#comments"
+            },
+            {
+              "include": "#keywords"
+            },
+            {
+              "include": "#operators"
+            },
+            {
+              "include": "#storage"
+            },
+            {
+              "include": "#support"
+            },
+            {
+              "include": "#values"
+            },
+            {
+              "include": "#functions"
+            }
+          ]
+        },
+        {
+          "name": "meta.function.cocktail",
+          "begin": "^\\s*(func)\\s+([A-Za-z_]\\w*)\\s*\\(",
+          "end": "\\)",
+          "beginCaptures": {
+            "1": {
+              "name": "storage.type.function.cocktail"
+            },
+            "2": {
+              "name": "entity.name.function.cocktail"
+            }
+          },
+          "while": "(((([A-Za-z_]\\w*)(=[\\S\\s]+?)?),|\\/,|\\*,)\\s*)*((([A-Za-z_]\\w*)(=[\\S\\s]+?)?),?|\\/,?|\\*,?)?",
+          "whileCaptures": {
+            "4": {
+              "name": "variable.parameter.cocktail"
+            },
+            "8": {
+              "name": "variable.parameter.cocktail"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#comments"
+            },
+            {
+              "include": "#keywords"
+            },
+            {
+              "include": "#operators"
+            },
+            {
+              "include": "#storage"
+            },
+            {
+              "include": "#support"
+            },
+            {
+              "include": "#values"
+            },
+            {
+              "include": "#functions"
             }
           ]
         }

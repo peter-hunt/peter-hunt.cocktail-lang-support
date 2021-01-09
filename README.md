@@ -1,5 +1,4 @@
 # Cocktail Lang Support
-
 Support for [Cocktail Programming Language](https://github.com/peter-hunt/cocktail-lang)
 
 ## Features
@@ -31,7 +30,8 @@ This extension contributes the following settings:
 
 ## Known Issues
 
-Strings with line-breaks are highlighted, which shouldn't.
+Function name and parameters not highlighted in definitions.
+Supported functions aren't properly highlighted in function definitions scope.
 
 ## Release Notes
 ### 0.1.0
